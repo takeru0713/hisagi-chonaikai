@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Zushi Hisagi Neighborhood Association | 久木町内会</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700;900&family=Work+Sans:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Work Sans', 'Noto Sans JP', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, .serif {
+            font-family: 'Noto Serif JP', serif;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline": "#75777e",
+                        "on-primary-container": "#8396b8",
+                        "on-secondary-fixed-variant": "#23501e",
+                        "background": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffdbcf",
+                        "secondary-fixed-dim": "#a1d494",
+                        "primary": "#031935",
+                        "primary-fixed": "#d6e3ff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "secondary-fixed": "#bcf0ae",
+                        "on-background": "#191c1d",
+                        "secondary": "#3b6934",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#b4c7ec",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-surface-variant": "#44474d",
+                        "on-primary-fixed-variant": "#354766",
+                        "surface-dim": "#d9dadb",
+                        "inverse-primary": "#b4c7ec",
+                        "on-secondary-container": "#3f6d38",
+                        "secondary-container": "#b9eeab",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container": "#edeeef",
+                        "tertiary-container": "#561900",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#802a00",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#1b2e4b",
+                        "outline-variant": "#c4c6ce",
+                        "on-primary-fixed": "#061b38",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "tertiary": "#330c00",
+                        "surface-tint": "#4d5f7f",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-tertiary-container": "#ff621a",
+                        "inverse-surface": "#2e3132",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-fixed": "#002201"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif JP"],
+                        "body": ["Work Sans", "Noto Sans JP"],
+                        "label": ["Work Sans", "Noto Sans JP"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-on-tertiary-container selection:text-white">
+    <!-- TopNavBar (Shared Component) -->
+    <nav class="fixed top-0 w-full z-50 bg-[#F8F9FA]/90 dark:bg-[#1B2E4B]/90 backdrop-blur-md shadow-[0px_10px_30px_rgba(25,28,29,0.05)]">
+        <div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-7xl mx-auto">
+            <a href="#" class="text-2xl font-bold font-['Noto_Serif_JP'] text-[#1B2E4B] dark:text-[#F8F9FA] hover:text-[#3B6934] transition-colors">Zushi Hisagi</a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 lg:space-x-8 items-center font-['Noto_Serif_JP'] text-[16px] lg:text-[18px] leading-[1.6]">
+                <a class="text-[#1B2E4B] dark:text-[#F8F9FA] hover:text-[#3B6934] transition-all duration-300" href="#events">イベント</a>
+                <a class="text-[#1B2E4B] dark:text-[#F8F9FA] hover:text-[#3B6934] transition-all duration-300" href="#activities">活動内容</a>
+                <a class="text-[#1B2E4B] dark:text-[#F8F9FA] hover:text-[#3B6934] transition-all duration-300" href="#news">お知らせ</a>
+                <a class="text-[#1B2E4B] dark:text-[#F8F9FA] hover:text-[#3B6934] transition-all duration-300" href="#safety-map">防災・安全</a>
+                <a class="text-[#1B2E4B] dark:text-[#F8F9FA] hover:text-[#3B6934] transition-all duration-300" href="#contact">お問い合わせ</a>
+                <a class="bg-on-tertiary-container text-white px-6 py-2 rounded-full font-bold hover:opacity-80 transition-all duration-300 scale-95 hover:scale-100 ease-in-out whitespace-nowrap" href="#join">加入申請</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-primary p-2 focus:outline-none">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#F8F9FA] border-t border-outline-variant/20 absolute w-full shadow-lg">
+            <div class="flex flex-col px-4 py-4 space-y-4 font-['Noto_Serif_JP'] text-[18px]">
+                <a class="mobile-link text-[#1B2E4B] hover:text-[#3B6934] border-b border-outline-variant/10 pb-2" href="#events">イベント</a>
+                <a class="mobile-link text-[#1B2E4B] hover:text-[#3B6934] border-b border-outline-variant/10 pb-2" href="#activities">活動内容</a>
+                <a class="mobile-link text-[#1B2E4B] hover:text-[#3B6934] border-b border-outline-variant/10 pb-2" href="#news">お知らせ</a>
+                <a class="mobile-link text-[#1B2E4B] hover:text-[#3B6934] border-b border-outline-variant/10 pb-2" href="#safety-map">防災・安全</a>
+                <a class="mobile-link text-[#1B2E4B] hover:text-[#3B6934] border-b border-outline-variant/10 pb-2" href="#contact">お問い合わせ</a>
+                <a class="mobile-link bg-on-tertiary-container text-white text-center px-6 py-3 rounded-full font-bold hover:opacity-80 transition-all duration-300" href="#join">加入申請</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-[72px]">
+        <!-- 1. Hero Section -->
+        <section class="relative min-h-[600px] md:h-[870px] w-full flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img alt="久木の神社での団らん" class="w-full h-full object-cover" src="file:///Users/Takeru/.gemini/antigravity/brain/e76f11e4-ccfc-4647-a533-0d4a0c80c997/shrine_gathering_1774533205853.png"/>
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/70 md:from-primary/60 to-primary/30 md:to-transparent"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full">
+                <div class="max-w-2xl mt-12 md:mt-0">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-8 tracking-tighter drop-shadow-lg">
+                        久木で、ともに<br/>安心して暮らす。
+                    </h1>
+                    <a class="inline-block bg-on-tertiary-container text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-lg md:text-xl font-bold shadow-lg hover:bg-tertiary-container transition-all transform hover:scale-105 text-center w-full md:w-auto" href="#join">
+                        オンラインで町内会に加入する
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Event Highlight -->
+        <section id="events" class="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-20">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-4">
+                <div>
+                    <span class="text-on-tertiary-container font-bold tracking-[0.2em] text-xs md:text-sm mb-2 block uppercase">これからのイベント</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-primary">直近のイベント</h2>
+                </div>
+                <a class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors" href="#">すべてのイベントを見る</a>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+                <!-- Event Card 1 -->
+                <div class="group cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow p-4 md:p-0">
+                    <div class="aspect-[16/9] rounded-xl overflow-hidden mb-6 md:m-0">
+                        <img alt="久木神社の夏祭り" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="夏祭り.jpg"/>
+                    </div>
+                    <div class="flex gap-4 items-start md:p-6">
+                        <div class="bg-secondary-fixed text-on-secondary-fixed-variant px-3 md:px-4 py-2 rounded-lg text-center min-w-[60px] md:min-w-[70px]">
+                            <span class="block text-xs md:text-sm font-bold">8月</span>
+                            <span class="block text-xl md:text-2xl font-black">15日</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-on-tertiary-container transition-colors">久木神社の夏祭り</h3>
+                            <p class="text-on-surface-variant text-base md:text-lg leading-relaxed">久木神社で開催。屋台、盆踊り、そして最後には小さな打ち上げ花火も。</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event Card 2 -->
+                <div class="group cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow p-4 md:p-0">
+                    <div class="aspect-[16/9] rounded-xl overflow-hidden mb-6 md:m-0">
+                        <img alt="冬の焼き芋大会" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="焼き芋.JPG"/>
+                    </div>
+                    <div class="flex gap-4 items-start md:p-6">
+                        <div class="bg-primary-fixed text-on-primary-fixed-variant px-3 md:px-4 py-2 rounded-lg text-center min-w-[60px] md:min-w-[70px]">
+                            <span class="block text-xs md:text-sm font-bold">12月</span>
+                            <span class="block text-xl md:text-2xl font-black">22日</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-on-tertiary-container transition-colors">冬の焼き芋大会</h3>
+                            <p class="text-on-surface-variant text-base md:text-lg leading-relaxed">地域の落ち葉を集めて焚き火。熱々の焼き芋を囲んで世代を超えた交流を楽しみましょう。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Our Activities (Editorial Grid) -->
+        <section id="activities" class="bg-surface-container-low py-16 md:py-24 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 md:px-8">
+                <div class="mb-12 md:mb-16 text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-black text-primary mb-4 md:mb-6">私たちの活動</h2>
+                    <p class="text-base md:text-lg text-on-surface-variant leading-relaxed">久木町内会では、住民一人ひとりが安心して豊かに暮らせるよう、5つの柱を中心に活動しています。</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
+                    <!-- Activity Card 1 -->
+                    <div class="bg-surface-container-lowest p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
+                        <div class="w-14 h-14 md:w-16 md:h-16 bg-error-container text-on-error-container rounded-full flex items-center justify-center mb-4 md:mb-6">
+                            <span class="material-symbols-outlined text-2xl md:text-3xl">emergency_home</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4">① 災害に備える</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">定期的な防災訓練や備蓄品の管理、災害時の連絡網整備を行っています。</p>
+                    </div>
+                    <!-- Activity Card 2 -->
+                    <div class="bg-surface-container-lowest p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
+                        <div class="w-14 h-14 md:w-16 md:h-16 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center mb-4 md:mb-6">
+                            <span class="material-symbols-outlined text-2xl md:text-3xl">volunteer_activism</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4">② 支え合う</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">独居高齢者への声かけ活動や、地域の福祉相談窓口としての役割を担います。</p>
+                    </div>
+                    <!-- Activity Card 3 -->
+                    <div class="bg-surface-container-lowest p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
+                        <div class="w-14 h-14 md:w-16 md:h-16 bg-primary-fixed text-on-primary-fixed-variant rounded-full flex items-center justify-center mb-4 md:mb-6">
+                            <span class="material-symbols-outlined text-2xl md:text-3xl">park</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4">③ きれいな街にする</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">ゴミ集積所の清掃指導や、公園の草刈り・植栽管理で美しい景観を保ちます。</p>
+                    </div>
+                    <!-- Activity Card 4 -->
+                    <div class="bg-surface-container-lowest p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
+                        <div class="w-14 h-14 md:w-16 md:h-16 bg-tertiary-fixed text-on-tertiary-fixed rounded-full flex items-center justify-center mb-4 md:mb-6">
+                            <span class="material-symbols-outlined text-2xl md:text-3xl">shield_person</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4">④ 地域の安全を守る</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">防犯パトロールの実施や、児童の登下校時の見守り活動を継続しています。</p>
+                    </div>
+                    <!-- Activity Card 5 -->
+                    <div class="bg-surface-container-lowest p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center sm:col-span-2 lg:col-span-1">
+                        <div class="w-14 h-14 md:w-16 md:h-16 bg-secondary-fixed text-on-secondary-fixed rounded-full flex items-center justify-center mb-4 md:mb-6">
+                            <span class="material-symbols-outlined text-2xl md:text-3xl">celebration</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-4">⑤ 地域活性化</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">世代を超えた交流を目的としたイベントを企画し、絆を深めています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Support Info & Shortcuts -->
+        <section class="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 items-start">
+                <!-- Latest News -->
+                <div id="news" class="lg:col-span-1 scroll-mt-20">
+                    <h2 class="text-2xl md:text-3xl font-black text-primary mb-6 md:mb-8">最新のお知らせ</h2>
+                    <div class="space-y-6">
+                        <a class="block group" href="#">
+                            <span class="text-xs md:text-sm text-on-tertiary-container font-bold">2024.11.20</span>
+                            <h4 class="text-base md:text-lg font-bold group-hover:underline underline-offset-4 transition-all">秋の一斉清掃活動の日程について</h4>
+                        </a>
+                        <a class="block group" href="#">
+                            <span class="text-xs md:text-sm text-on-tertiary-container font-bold">2024.11.15</span>
+                            <h4 class="text-base md:text-lg font-bold group-hover:underline underline-offset-4 transition-all">第3回 防災ワークショップ開催のお知らせ</h4>
+                        </a>
+                        <a class="block group" href="#">
+                            <span class="text-xs md:text-sm text-on-tertiary-container font-bold">2024.11.02</span>
+                            <h4 class="text-base md:text-lg font-bold group-hover:underline underline-offset-4 transition-all">町内会費の納入方法の変更について</h4>
+                        </a>
+                    </div>
+                </div>
+                <!-- Garbage Info -->
+                <div class="bg-surface-container-high p-6 md:p-8 rounded-xl flex flex-col items-center justify-center text-center h-full">
+                    <span class="material-symbols-outlined text-4xl md:text-5xl text-primary mb-4">delete_outline</span>
+                    <h3 class="text-lg md:text-xl font-bold mb-2">本日のゴミ収集日</h3>
+                    <div class="bg-white rounded-lg px-6 md:px-8 py-4 md:py-6 shadow-sm border border-outline-variant/20 w-full max-w-[200px]">
+                        <span class="block text-secondary font-black text-2xl md:text-3xl mb-1 flex-shrink-0">可燃ごみ</span>
+                        <span class="block text-on-surface-variant text-sm md:text-base">毎週 月・木曜日</span>
+                    </div>
+                    <p class="mt-4 text-xs md:text-sm text-on-surface-variant">※午前8時30分までに出してください</p>
+                </div>
+                <!-- Map Shortcut -->
+                <div id="safety-map" class="relative group h-full min-h-[250px] md:min-h-[300px] rounded-xl overflow-hidden shadow-sm scroll-mt-20">
+                    <div class="absolute inset-0 z-0">
+                        <img alt="Map Visualization" class="w-full h-full object-cover grayscale opacity-40 mix-blend-multiply" data-alt="Minimalist artistic map of a local neighborhood" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"/>
+                    </div>
+                    <div class="relative z-10 p-6 md:p-8 flex flex-col justify-between h-full bg-primary/20 backdrop-blur-[2px]">
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-black text-primary mb-2">防災・安全マップ</h3>
+                            <p class="text-on-surface font-semibold text-sm drop-shadow-sm">AED設置場所や避難場所を詳しく確認できます。</p>
+                        </div>
+                        <a class="bg-primary text-white p-3 md:p-4 rounded-xl flex items-center justify-center gap-2 font-bold hover:bg-on-primary-fixed-variant transition-colors mt-8" href="#">
+                            <span class="material-symbols-outlined">map</span>
+                            マップを開く
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Form Section (NEW) -->
+        <section id="contact" class="bg-surface-container-low py-16 md:py-24 px-4 md:px-8 scroll-mt-20">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-12 text-center max-w-2xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-black text-primary mb-4">お問い合わせ</h2>
+                    <p class="text-on-surface-variant">町内会に関するご質問やご相談など、お気軽にお問い合わせください。</p>
+                </div>
+                
+                <div class="max-w-3xl mx-auto bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-outline-variant/20">
+                    <form id="contact-form" class="space-y-6">
+                        <!-- Alert Message (Hidden by default) -->
+                        <div id="form-success" class="hidden bg-[#d1fac8] text-[#1a5e12] p-4 rounded-xl mb-6 font-bold text-center">
+                            お問い合わせを受け付けました。担当者より後日ご連絡いたします。
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-bold text-on-surface mb-2">お名前 <span class="text-error ml-1">*</span></label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border border-outline-variant/50 focus:border-primary focus:ring-2 focus:ring-primary/20 bg-surface outline-none transition-all" placeholder="山田 太郎">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-bold text-on-surface mb-2">メールアドレス <span class="text-error ml-1">*</span></label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-outline-variant/50 focus:border-primary focus:ring-2 focus:ring-primary/20 bg-surface outline-none transition-all" placeholder="example@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-bold text-on-surface mb-2">件名</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-xl border border-outline-variant/50 focus:border-primary focus:ring-2 focus:ring-primary/20 bg-surface outline-none transition-all" placeholder="イベント等に関するご質問">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-bold text-on-surface mb-2">お問い合わせ内容 <span class="text-error ml-1">*</span></label>
+                            <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 rounded-xl border border-outline-variant/50 focus:border-primary focus:ring-2 focus:ring-primary/20 bg-surface outline-none transition-all resize-y" placeholder="こちらにお問い合わせ内容をご記入ください"></textarea>
+                        </div>
+                        <div class="pt-4 text-center">
+                            <button type="submit" class="bg-primary text-white px-10 py-4 rounded-full font-bold hover:bg-on-primary-fixed-variant transition-colors shadow-md w-full md:w-auto hover:-translate-y-0.5 transform">
+                                入力内容を送信する
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CTA Section (Join Online) -->
+        <section id="join" class="py-20 md:py-32 bg-primary text-white relative overflow-hidden scroll-mt-20">
+            <!-- Decorative Nature Break -->
+            <div class="absolute top-0 left-0 w-full h-16 md:h-24 overflow-hidden -translate-y-1/2 opacity-20 pointer-events-none">
+                <svg class="w-full h-full fill-white" preserveaspectratio="none" viewbox="0 0 1200 120">
+                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path>
+                </svg>
+            </div>
+            <div class="max-w-4xl mx-auto px-4 md:px-8 text-center relative z-10">
+                <h2 class="text-3xl md:text-5xl font-black mb-6 md:mb-8">町内会へようこそ</h2>
+                <p class="text-lg md:text-2xl leading-relaxed mb-10 md:mb-12 text-on-primary-container font-light">
+                    地域の親睦や困った時の助け合い、行政とともに安全で安心に暮らすために。あなたの参加が、もっと素敵な久木をつくります。
+                </p>
+                <a class="inline-block bg-on-tertiary-container text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-lg md:text-2xl font-bold shadow-2xl hover:bg-tertiary-container transition-all transform hover:-translate-y-1" href="#">
+                    オンライン加入申請フォームへ進む
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full rounded-t-[24px] bg-[#F3F4F5] dark:bg-[#031935] text-[#1B2E4B] dark:text-[#F8F9FA] font-['Noto_Sans_JP'] text-[16px] md:text-[18px] leading-[1.6]">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-6 md:px-8 py-12 md:py-16 max-w-7xl mx-auto no-border">
+            <div class="space-y-4 md:space-y-6">
+                <div class="text-xl font-bold font-['Noto_Serif_JP']">Zushi Hisagi</div>
+                <p class="text-[#1B2E4B]/70 dark:text-[#F8F9FA]/70 text-sm">逗子市久木エリアの住民による、住民のための自治組織です。</p>
+            </div>
+            <div class="space-y-4 md:space-y-6 lg:ml-8">
+                <h4 class="font-bold border-b border-outline-variant/30 pb-2">リンク</h4>
+                <div class="grid grid-cols-2 gap-y-3 gap-x-4">
+                    <a class="text-[#1B2E4B]/70 dark:text-[#F8F9FA]/70 hover:text-[#3B6934] transition-colors" href="#contact">お問い合わせ</a>
+                    <a class="text-[#1B2E4B]/70 dark:text-[#F8F9FA]/70 hover:text-[#3B6934] transition-colors" href="#safety-map">マップ</a>
+                    <a class="text-[#1B2E4B]/70 dark:text-[#F8F9FA]/70 hover:text-[#3B6934] transition-colors" href="#">利用規約</a>
+                    <a class="text-[#1B2E4B]/70 dark:text-[#F8F9FA]/70 hover:text-[#3B6934] transition-colors" href="#">プライバシーポリシー</a>
+                    <a class="text-[#1B2E4B]/70 dark:text-[#F8F9FA]/70 hover:text-[#3B6934] transition-colors" href="#">公式LINE</a>
+                </div>
+            </div>
+            <div class="space-y-4 md:space-y-6">
+                <h4 class="font-bold border-b border-outline-variant/30 pb-2">アクセス</h4>
+                <p class="text-[#1B2E4B]/70 dark:text-[#F8F9FA]/70 text-sm leading-relaxed">
+                    〒249-0001 神奈川県逗子市久木<br/>
+                    久木会館内 事務局
+                </p>
+                <div class="text-[#FF621A] text-sm mt-4">© 2024 Zushi Hisagi Neighborhood Association</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Menu Toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            
+            // Toggle menu open/close
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                // Change icon
+                const icon = menuBtn.querySelector('.material-symbols-outlined');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.textContent = 'menu';
+                } else {
+                    icon.textContent = 'close';
+                }
+            });
+
+            // Close menu when clicking a link
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.querySelector('.material-symbols-outlined').textContent = 'menu';
+                });
+            });
+
+            // 2. Smooth Scrolling for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return; // Skip top dummy links
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 3. Form Submission Simulation
+            const contactForm = document.getElementById('contact-form');
+            const formSuccess = document.getElementById('form-success');
+            
+            if(contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent page reload
+                    
+                    // Change button to show loading state
+                    const btn = contactForm.querySelector('button[type="submit"]');
+                    const originalText = btn.textContent;
+                    btn.textContent = '送信中...';
+                    btn.disabled = true;
+                    btn.classList.add('opacity-70', 'cursor-not-allowed');
+
+                    // Simulate API call delay (1 second)
+                    setTimeout(() => {
+                        // Show success message
+                        formSuccess.classList.remove('hidden');
+                        
+                        // Reset form fields
+                        contactForm.reset();
+                        
+                        // Reset button
+                        btn.textContent = originalText;
+                        btn.disabled = false;
+                        btn.classList.remove('opacity-70', 'cursor-not-allowed');
+
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            formSuccess.classList.add('hidden');
+                        }, 5000);
+                        
+                    }, 1000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
